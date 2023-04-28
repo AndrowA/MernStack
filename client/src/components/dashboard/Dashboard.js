@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCurrentProfile } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
+import { Link } from "react-router-dom";
 
 const Dashboard = props => {
   const dispatch = useDispatch();
@@ -22,7 +23,16 @@ const Dashboard = props => {
       <p className='lead'>
         <i className='fas fa-user'></i> Welcome {auth.user && auth.user.name}
       </p>
-      {profile.profile !== null ? <div>has</div> : <div>has not</div>}
+      {profile.profile !== null ? (
+        <div>has</div>
+      ) : (
+        <div>
+          <p>You have not yet setup a profile, please add some info</p>
+          <Link to='/create-profile' className='btn btn-primary my-1'>
+            Create Profile
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
