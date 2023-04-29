@@ -10,6 +10,10 @@ import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 import Dashboard from "./components/dashboard/Dashboard";
 import PrivateRoute from "./components/routing/PrivateRoute";
+import CreateProfile from "./components/profile-form/CreateProfile";
+import EditProfile from "./components/profile-form/EditProfile";
+import { AddExperience } from "./components/profile-form/AddExperience";
+import { AddEducation } from "./components/profile-form/AddEducation";
 
 //Redux
 import { Provider } from "react-redux";
@@ -32,14 +36,46 @@ const App = () => {
         <Navbar />
         <Alert />
         <Routes>
-          <Route path='/' element={<Landing />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route
-            path='/dashboard'
+            path="/dashboard"
             element={
               <PrivateRoute>
                 <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/create-profile"
+            element={
+              <PrivateRoute>
+                <CreateProfile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/edit-profile"
+            element={
+              <PrivateRoute>
+                <EditProfile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/add-experience"
+            element={
+              <PrivateRoute>
+                <AddExperience />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/add-education"
+            element={
+              <PrivateRoute>
+                <AddEducation />
               </PrivateRoute>
             }
           />
