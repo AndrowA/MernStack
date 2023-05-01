@@ -43,11 +43,13 @@ router.post(
       }
 
       // Get users gravatar
-      const avatar = gravatar.url(email, {
-        s: "200",
-        r: "pg",
-        d: "m",
-      });
+      const avatar = gravatar.url
+        ? gravatar.url(email, {
+            s: "200",
+            r: "pg",
+            d: "m",
+          })
+        : "https://www.iprcenter.gov/image-repository/blank-profile-picture.png/@@images/image.png";
 
       user = new User({
         name,

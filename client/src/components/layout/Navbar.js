@@ -13,6 +13,9 @@ export const Navbar = () => {
     // have to put the () => dispatch(logout()) for this to work
     <ul>
       <li>
+        <Link to='/profiles'>Developers</Link>
+      </li>
+      <li>
         <Link to='/dashboard'>
           <i className='fas fa-user'>
             <span className='hide-sm'>Dashboard</span>
@@ -32,7 +35,7 @@ export const Navbar = () => {
   const guestLinks = (
     <ul>
       <li>
-        <a href='#!'>Developers</a>
+        <Link to='/profiles'>Developers</Link>
       </li>
       <li>
         <Link to='/register'>Register</Link>

@@ -14,6 +14,8 @@ import CreateProfile from "./components/profile-form/CreateProfile";
 import EditProfile from "./components/profile-form/EditProfile";
 import { AddExperience } from "./components/profile-form/AddExperience";
 import { AddEducation } from "./components/profile-form/AddEducation";
+import { Profiles } from "./components/profiles/Profiles";
+import { Profile } from "./components/profile/Profile";
 
 //Redux
 import { Provider } from "react-redux";
@@ -36,11 +38,13 @@ const App = () => {
         <Navbar />
         <Alert />
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path='/' element={<Landing />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/profile/:id' element={<Profile />} />
+          <Route path='/profiles' element={<Profiles />} />
           <Route
-            path="/dashboard"
+            path='/dashboard'
             element={
               <PrivateRoute>
                 <Dashboard />
@@ -48,7 +52,7 @@ const App = () => {
             }
           />
           <Route
-            path="/create-profile"
+            path='/create-profile'
             element={
               <PrivateRoute>
                 <CreateProfile />
@@ -56,7 +60,7 @@ const App = () => {
             }
           />
           <Route
-            path="/edit-profile"
+            path='/edit-profile'
             element={
               <PrivateRoute>
                 <EditProfile />
@@ -64,7 +68,7 @@ const App = () => {
             }
           />
           <Route
-            path="/add-experience"
+            path='/add-experience'
             element={
               <PrivateRoute>
                 <AddExperience />
@@ -72,7 +76,7 @@ const App = () => {
             }
           />
           <Route
-            path="/add-education"
+            path='/add-education'
             element={
               <PrivateRoute>
                 <AddEducation />
